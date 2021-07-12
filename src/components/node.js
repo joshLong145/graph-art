@@ -28,8 +28,7 @@ export class Node extends React.Component {
       r="10" 
       fill={this.generateStroke()}
     >
-    <animateMotion dur="5s" attributeName="cx" path="M10,90 Q90,90 90,45 Q90,10 50,10 Q10,10 10,40 Q10,70 45,70 Q70,70" repeatCount="indefinite" />
-     </circle>
+    <animateMotion dur="5s" attributeName="cx" path="M10,90 Q90,90 90,45 Q90,10 50,10 Q10,10 10,40 Q10,70 45,70 Q70,70" repeatCount="indefinite" />    </circle>
    );
  }
  
@@ -45,7 +44,7 @@ export class Node extends React.Component {
    );
  }
  render(){
-   if (this.props.cx < (1500 / 2) || this.props.cy < (1500 /2)) {
+   if (this.props.animate) {
      return this.animateNode();
     } else {
      return this.stillNode();

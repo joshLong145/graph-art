@@ -26,21 +26,25 @@ class App extends React.Component {
   generate() {
     delete this.state.coords;
     this.state.coords = [];
-    this.state.coords = [];
     this.state.nodes = [];
     this.state.verticies = [];
     var seed = 1500;
-    console.log(seed);
-    console.log(seed);
     for (var i = 0; i < 30; i ++) {
+        const x =  Math.floor(Math.random() * seed)
+        const y = Math.floor(Math.random() * seed);
+
         this.state.coords.push([
-          Math.floor(Math.random() * seed), 
-          Math.floor(Math.random() * seed)
+          x,
+          y,
+          x < (1500 / 2) || y < (1500 /2) ? true: false
         ]);
+
         this.state.nodes.push(
-          <Node fill={i} 
+          <Node 
+            fill={i} 
             cx={this.state.coords[i][0].toString()} 
-            cy={this.state.coords[i][1].toString()} 
+            cy={this.state.coords[i][1].toString()}
+            animate={this.state.coords[i][2]}
           />);
         
       for (var j = 0; j < this.state.coords.length; j++) {
@@ -51,18 +55,23 @@ class App extends React.Component {
             y1={this.state.coords[i][1].toString()} 
             x2={this.state.coords[j][0].toString()} 
             y2={this.state.coords[j][1].toString()}
+            animate1={this.state.coords[i][2]}
+            animate2={this.state.coords[j][2]}
           />);
+
+          //this.state.coords[j][2] = (!this.state.coords[j][2] && this.state.coords[j][2]) ? true : false; 
       }
-      console.log(this.state.coords);
     }
   }
   
   	
   render() {
     this.generate();
+    const viewBox = `0 0 ${window.screen.height * 4} ${window.screen.height * 4}`;
+    console.log(window.screen.height, window.screen.width);
     return (
       <div style={{backgroundColor: '#957DAD'}} className="App">
-        <svg viewBox="0 0 1500 1500" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
             {this.state.verticies}
             {this.state.nodes}
           </svg>
