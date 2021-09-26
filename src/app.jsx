@@ -30,13 +30,13 @@ class App extends React.Component {
     this.state.verticies = [];
     var seed = 1500;
     for (var i = 0; i < 30; i ++) {
-        const x =  Math.floor(Math.random() * seed)
-        const y = Math.floor(Math.random() * seed);
+        const x =  Math.floor(Math.random() * seed) + (window.innerWidth / 2);
+        const y = Math.floor(Math.random() * seed) + (window.innerHeight /2);
 
         this.state.coords.push([
           x,
           y,
-          x < (1500 / 2) || y < (1500 /2) ? true: false
+          x < (1500 / 2) || y < (1500 / 2) ? true: false
         ]);
 
         this.state.nodes.push(
@@ -67,10 +67,10 @@ class App extends React.Component {
   	
   render() {
     this.generate();
-    const viewBox = `0 0 ${window.screen.height * 4} ${window.screen.height * 4}`;
+    const viewBox = `0 0  ${window.screen.height * 4} ${window.screen.height * 4}`;
     console.log(window.screen.height, window.screen.width);
     return (
-      <div style={{backgroundColor: '#957DAD'}} className="App">
+      <div style={{backgroundColor: '#957DAD',  backgroundImage: `linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%)`}} className="App">
         <svg viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
             {this.state.verticies}
             {this.state.nodes}

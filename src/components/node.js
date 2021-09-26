@@ -21,23 +21,31 @@ export class Node extends React.Component {
        
  
  animateNode() {
+   
    return(
     <circle 
       cx={this.props.cx} 
       cy={this.props.cy} 
-      r="10" 
+      r="20" 
       fill={this.generateStroke()}
     >
-    <animateMotion dur="5s" attributeName="cx" path="M10,90 Q90,90 90,45 Q90,10 50,10 Q10,10 10,40 Q10,70 45,70 Q70,70" repeatCount="indefinite" />    </circle>
+    <animateMotion
+      dur="5s" 
+      attributeName="cx"
+      style={{backgroundImage: `linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%)`}}
+      path="M10,90 Q90,90 90,45 Q90,10 50,10 Q10,10 10,40 Q10,70 45,70 Q70,70"
+      repeatCount="indefinite"/>
+      </circle>
    );
  }
  
  stillNode() {
    return(
-    <circle 
+    <circle
+      style={{backgroundImage: `linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%)`}}
       cx={this.props.cx} 
       cy={this.props.cy} 
-      r="10" 
+      r="20" 
       fill={this.generateStroke()}
     >
     </circle>
