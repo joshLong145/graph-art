@@ -70,7 +70,7 @@ class App extends React.Component {
     const viewBox = `0 0 ${window.screen.height * 4} ${window.screen.height * 4}`;
     console.log(window.screen.height, window.screen.width);
     return (
-      <div style={{backgroundColor: '#957DAD'}} className="App">
+      <div className="Background">
         <svg viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
             {this.state.verticies}
             {this.state.nodes}

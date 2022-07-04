@@ -5,5 +5,5 @@ WORKDIR /app
 COPY . .
 
 RUN npm install
-EXPOSE 8080 8080
+EXPOSE 9090 9090
 CMD ["node", "index.js"]
