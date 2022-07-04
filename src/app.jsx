@@ -29,7 +29,7 @@ class App extends React.Component {
     this.state.nodes = [];
     this.state.verticies = [];
     var seed = 1500;
-    for (var i = 0; i < 30; i ++) {
+    for (var i = 0; i < 60; i ++) {
         const x =  Math.floor(Math.random() * seed)
         const y = Math.floor(Math.random() * seed);
 
